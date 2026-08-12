@@ -383,7 +383,11 @@ impl ContextWrap {
                         let mut ruby_args = Vec::new();
 
                         if let Some(target) = this {
-                            ruby_args.push(cel_to_ruby(&ruby, &target).map_err(|e| {
+                            let target_value: CelValue =
+                                target.as_ref().try_into().map_err(|e: CelExecutionError| {
+                                    CelExecutionError::function_error(ftx.name, e.to_string())
+                                })?;
+                            ruby_args.push(cel_to_ruby(&ruby, &target_value).map_err(|e| {
                                 CelExecutionError::function_error(ftx.name, e.to_string())
                             })?);
                         }
