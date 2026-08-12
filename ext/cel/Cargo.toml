@@ -10,5 +10,5 @@ crate-type = ["cdylib"]
 [dependencies]
 magnus = { version = "0.8.2", features = ["chrono", "rb-sys"] }
 rb-sys = { version = "0.9.128", features = ["stable-api-compiled-fallback"] }
-cel = { version = "0.13.0", features = ["chrono", "regex", "json"] }
+cel = { version = "0.14.2", features = ["chrono", "regex", "json"] }
 chrono = "0.4.45"

@@ -84,7 +84,8 @@ RSpec.describe CEL do
         "[1,2,3].filter(x, x > 1)" => [2, 3],
         "[1,2,3].exists(x, x == 2)" => true,
         "[1,2,3].all(x, x > 0)" => true,
-        "{'a': 1}.contains('a')" => true,
+        "'a' in {'a': 1}" => true,
+        "'abc'.contains('b')" => true,
         "optional.of(1).hasValue()" => true
       }
 
